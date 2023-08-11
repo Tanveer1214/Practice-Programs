@@ -28,7 +28,9 @@ public class Stream_API {
 		
 //		List<Integer> list = List.of(1,2,3,4,5,6,7,8,9,10);
 		
-//		List<Integer> list2 = list.stream().filter(p -> p % 2 == 0).collect(Collectors.toList());
+//		List<Integer> list2 = list.stream()
+//				.filter(p -> p % 2 == 0)
+//				.collect(Collectors.toList());
 //		list2.forEach(n -> System.out.println(n));
 		
 //		List<Integer> list3 = list.stream().map(p -> p * p).collect(Collectors.toList());
@@ -64,6 +66,11 @@ public class Stream_API {
 //				.sorted((p1 , p2) -> p1.salary - p2.salary)
 //				.collect(Collectors.toList());
 //		list.forEach(n -> System.out.println(n.id+" "+n.name+" "+n.salary+" "+n.city));
+		
+		List<Integer> numbers = List.of(4,6,9,2,4);
+		int sum = numbers.stream()
+				.reduce(0, (a,b) -> a+b);
+		System.out.println(sum);
 		
 	}
 	
