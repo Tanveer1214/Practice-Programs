@@ -12,7 +12,11 @@
         <property name="show_sql">true</property>
 <!--        <mapping class="com.hibernate.Student"/>-->
 <!--        <mapping class="com.hibernate.Profile"/>-->
-        <mapping class="com.hibernate.onetone.Person"/>
-        <mapping class="com.hibernate.onetone.Address"/>
+
+<!--        <mapping class="com.hibernate.onetone.Person"/>-->
+<!--        <mapping class="com.hibernate.onetone.Address"/>-->
+
+        <mapping class="com.hibernate.onetomany.Question"/>
+        <mapping class="com.hibernate.onetomany.Answer"/>
     </session-factory>
 </hibernate-configuration>

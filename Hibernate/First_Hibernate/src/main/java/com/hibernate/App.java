@@ -1,5 +1,7 @@
 package com.hibernate;
 
+import com.hibernate.onetomany.Answer;
+import com.hibernate.onetomany.Question;
 import com.hibernate.onetone.Address;
 import com.hibernate.onetone.Person;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -15,6 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class App {
@@ -80,10 +83,29 @@ public class App {
 //        session.close();
 
 
-        // One to One
+//        // One to One
+//        Session session = sessionFactory.openSession();
+//        session.beginTransaction();
+//        session.persist(new Person("Sammer Hussain",100000,new Address("Mehrabpur","N.Ferzoe","Sindh")));
+//        session.getTransaction().commit();
+//        session.close();
+
+        // One to Many
+        Question question = new Question();
+        question.setQuestion("Why variables use in java?");
+
+        ArrayList<Answer> list = new ArrayList<>();
+        list.add(new Answer("Variables use for store the data.",question));
+        list.add(new Answer("Variables use for store objects.",question));
+        list.add(new Answer("Without Variables java program can not be execute.",question));
+        list.add(new Answer("Variables use for store list of the data.",question));
+
+        question.setAnswer(list);
+
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.persist(new Person("Sammer Hussain",100000,new Address("Mehrabpur","N.Ferzoe","Sindh")));
+        session.persist(question);
+        for(Answer i : list) session.persist(i);
         session.getTransaction().commit();
         session.close();
 
